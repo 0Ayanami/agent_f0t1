@@ -51,7 +51,6 @@ def search(query):
         ret = tavily.invoke(input=query)
         print("搜索结果:{}".format(ret))
         print("\n")
-        content_list = []
         """
         # 从哪个网站上获取的内容
         ret = [
@@ -61,8 +60,8 @@ def search(query):
             }
         ]
         """
-        for obj in ret:
-            content_list.append(obj["content"])
+
+        content_list = [obj["content"] for obj in ret]
         return "\n".join(content_list)
     except Exception as e:
         return "search error:{}".format(e)

@@ -54,26 +54,26 @@ agent_scratch:{agent_scratch}
 
 response_format_prompt = """
  {
-            "action": {
-                "name": "action name",
-                "args": {
-                    "args name": "args value"
-                }
-            },
-            "thoughts":{
-                "plan": "简单的描述短期和长期的计划列表",
-                "criticism": "建设性的自我批评",
-                "speak": "当前步骤，返回给用户的总结",
-                "reasoning": "推理"
-            },
-            "observation": "观察当前任务的整体进度"
+        "action": {
+            "name": "action name",
+            "args": {
+                "args name": "args value"
+            }
+        },
+        "thoughts":{
+            "plan": "简单的描述短期和长期的计划列表",
+            "criticism": "建设性的自我批评",
+            "speak": "当前步骤，返回给用户的总结",
+            "reasoning": "推理"
+        },
+        "observation": "观察当前任务的整体进度"
 }
 """
 
 action_prompt = gen_tools_desc()
-constraints_prompt = "\n".join([f"{idx+1}.{con}" for idx, con in enumerate(constraints)])
-resources_prompt = "\n".join([f"{idx+1}.{con}" for idx, con in enumerate(resources)])
-best_practices_prompt = "\n".join([f"{idx+1}.{con}" for idx, con in enumerate(best_practices)])
+constraints_prompt = "\n".join([f"{idx + 1}.{con}" for idx, con in enumerate(constraints)])
+resources_prompt = "\n".join([f"{idx + 1}.{con}" for idx, con in enumerate(resources)])
+best_practices_prompt = "\n".join([f"{idx + 1}.{con}" for idx, con in enumerate(best_practices)])
 
 
 def gen_prompt(query, agent_scratch):

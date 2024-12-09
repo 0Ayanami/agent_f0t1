@@ -107,7 +107,6 @@ def agent_execute(query, max_request_time):
         observation = response.get("observation")
         try:
             """action-name到函数的映射 map -> {"action_name":func}"""
-            # tools_map = {}
             # 获得函数然后直接调用,获得函数的结果
             func = tools_map.get(action_name)
             call_function_result = func(**action_args)
