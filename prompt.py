@@ -1,14 +1,14 @@
 from tools import gen_tools_desc
 
 """
-        prompt包含的功能:
-            1、任务的描述
-            2、工具的描述
-            3、用户的输入user_msg: 
-            4、assistant_msg:
-            5、结果的限制
-            6、给出更好实践的描述
-        """
+prompt包含的功能:
+    1、任务的描述
+    2、工具的描述
+    3、用户的输入user_msg: 
+    4、assistant_msg:
+    5、结果的限制
+    6、给出更好实践的描述
+"""
 constraints = [
     "仅使用下面列出的动作",
     "你只能主动行动，在计划行动时需要考虑这一点",
@@ -77,11 +77,6 @@ best_practices_prompt = "\n".join([f"{idx + 1}.{con}" for idx, con in enumerate(
 
 
 def gen_prompt(query, agent_scratch):
-    """
-    :param query:
-    :param agent_scratch:
-    :return:
-    """
     prompt = prompt_template.format(
         query=query,
         constraints=constraints_prompt,
