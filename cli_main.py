@@ -1,28 +1,16 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-"""=================================================
-@PROJECT_NAME: agent_example
-@File    : cli_main.py
-@Author  : Liuyz
-@Date    : 2024/6/28 14:04
-@Function: 
-    从0到1实现agent
-@Modify History:
-         
-@Copyright：Copyright(c) 2024-2026. All Rights Reserved
-=================================================="""
 import time
 from tools import tools_map
 from prompt import gen_prompt, user_prompt
 from model_provider import ModelProvider
 from dotenv import load_dotenv
+
 load_dotenv()
-# agent 入口
-"""todo"""
-# 1、环境变量的设置
-# 2、工具的引入
-# 3、prompt模板
-# 4、模型的初始化
+"""
+agent 入口
+1、环境变量的设置
+2、工具的引入
+3、prompt模板
+4、模型的初始化"""
 
 mp = ModelProvider()
 
@@ -95,12 +83,12 @@ def agent_execute(query, max_request_time):
             }
         }
         """
-        # 这里统一叫tools #
+
         action_info = response.get("action")
         action_name = action_info.get("name")
         action_args = action_info.get("args")
         print("当前action_name:{}||action_入参:{}".format(action_name, action_args))
-        # 其他输出信息
+
         thoughts = response.get("thoughts")
         plan = thoughts.get("plan")
         reasoning = thoughts.get("reasoning")
@@ -150,5 +138,4 @@ def main():
 
 
 if __name__ == '__main__':
-    # input = "请为我制定一个理财计划"
     main()

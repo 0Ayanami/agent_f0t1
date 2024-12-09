@@ -1,16 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-"""=================================================
-@PROJECT_NAME: agent_example
-@File    : tools.py
-@Author  : Liuyz
-@Date    : 2024/6/28 14:45
-@Function: 
-    定义相关的tools
-@Modify History:
-         
-@Copyright：Copyright(c) 2024-2026. All Rights Reserved
-=================================================="""
 import json
 import os
 from langchain_community.tools.tavily_search import TavilySearchResults
@@ -18,7 +5,7 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 """
     1、写文件
     2、读文件
-    3、追加的方式写
+    3、追加
     4、专业领域知识的获取(网络搜索)
 """
 
@@ -59,13 +46,9 @@ def write_to_file(filename, content):
 
 
 def search(query):
-    """
-    :param query:
-    :return:
-    """
-    daily = TavilySearchResults(max_results=5)
+    tavily = TavilySearchResults(max_results=5)
     try:
-        ret = daily.invoke(input=query)
+        ret = tavily.invoke(input=query)
         print("搜索结果:{}".format(ret))
         print("\n")
         content_list = []
@@ -113,7 +96,7 @@ tools_info = [
             }
         ]
     },
-{
+    {
         "name": "write_to_file",
         "description": "write llm content to file",
         "args": [
@@ -129,7 +112,7 @@ tools_info = [
             }
         ]
     },
-{
+    {
         "name": "finish",
         "description": "完成用户目标",
         "args": [
@@ -165,7 +148,6 @@ tools_map = {
 def gen_tools_desc():
     """
     生成工具描述
-    :return:
     """
     tools_desc = []
     for idx, t in enumerate(tools_info):
@@ -177,10 +159,7 @@ def gen_tools_desc():
                 "type": info["type"]
             })
         args_desc = json.dumps(args_desc, ensure_ascii=False)
-        tool_desc = f"{idx+1}.{t['name']}:{t['description']}, args: {args_desc}"
+        tool_desc = f"{idx + 1}.{t['name']}:{t['description']}, args: {args_desc}"
         tools_desc.append(tool_desc)
     tools_prompt = "\n".join(tools_desc)
     return tools_prompt
-
-
-

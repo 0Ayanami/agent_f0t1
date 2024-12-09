@@ -1,16 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-"""=================================================
-@PROJECT_NAME: agent_example
-@File    : model_provider.py
-@Author  : Liuyz
-@Date    : 2024/6/28 17:12
-@Function: 
-
-@Modify History:
-         
-@Copyright：Copyright(c) 2024-2026. All Rights Reserved
-=================================================="""
 import os, json
 import dashscope
 from prompt import user_prompt

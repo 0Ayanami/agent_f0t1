@@ -1,18 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-"""=================================================
-@PROJECT_NAME: agent_example
-@File    : llm_api.py
-@Author  : Liuyz
-@Date    : 2024/6/28 17:03
-@Function: 
-
-@Modify History:
-         
-@Copyright：Copyright(c) 2024-2026. All Rights Reserved
-=================================================="""
-# 业务空间模型调用请参考文档传入workspace信息: https://help.aliyun.com/document_detail/2746874.html
-
 import random
 from http import HTTPStatus
 from dashscope import Generation

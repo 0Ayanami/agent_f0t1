@@ -1,16 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-"""=================================================
-@PROJECT_NAME: agent_example
-@File    : bailian.py
-@Author  : Liuyz
-@Date    : 2024/6/28 16:43
-@Function: 
-
-@Modify History:
-         
-@Copyright：Copyright(c) 2024-2026. All Rights Reserved
-=================================================="""
 import random
 from http import HTTPStatus
 from dashscope import Generation
